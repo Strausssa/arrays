@@ -64,4 +64,58 @@ module Arrays
 			false
 		end
 	end
+
+	def plus_it(stringer, relt)
+		new_stringer = "+" * stringer.length
+		relt_index = 0 
+		while true 
+			offset = relt_index == 0 ? 0 :  relt_index + relt.length 
+			relt_index = stringer.index(relt, offset)
+			if relt_index == nil 
+				return new_stringer
+			else
+				for i in 0...relt.length 
+					new_stringer[relt_index + i] = relt[i]
+				end
+			end
+			
+		end
+	end
 	
+	def zero_front(arr)
+		new_arr = []
+		for element in 0...arr.length
+			if arr[element] == 0
+				new_arr.push(arr[element])
+			end
+		end
+		for element in 0...arr.length
+			if arr[element] > 0 
+				new_arr.push(arr[element])
+			end
+		end
+		new_arr
+	end
+	
+	def ten_run(arrayss)
+		multiple = 0
+		for element in 0...arrayss.length
+			multiple = arrayss[element] if arrayss[element] % 10 == 0
+			arrayss[element] = multiple if multiple > 0
+		end
+		arrayss
+	end
+	
+	def max_span(arrayes)
+		span = 0 
+		for n in 0...arrayes.length 
+			for x in n...arrayes.length 
+				if arrayes[x] == arrayes[n]
+					span = (1 +(x-n)) if (1+(x-n)) > span && x-n >0
+				end
+			end
+		end
+		return span
+	end
+
+end
