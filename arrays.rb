@@ -66,15 +66,15 @@ module Arrays
 	end
 	
 	def plus_it(string, token)
-		new_string = "+" * string.length #for output
-		token_index = 0 # initialize index of the token in the string to zero
-		while true # loop till the string is exhausted(searched entire string)
-			offset = token_index == 0 ? 0 :  token_index + token.length #Start from zero, if we found token index before, find the postiion after the previous index()
-			token_index = string.index(token, offset)# searched the token from the offset in the string(if there is more than 1 token in word)
-			if token_index == nil # if no more tokens found, return new string
+		new_string = "+" * string.length
+		token_index = 0 
+		while true 
+			offset = token_index == 0 ? 0 :  token_index + token.length 
+			token_index = string.index(token, offset)
+			if token_index == nil 
 				return new_string
 			else
-				for i in 0...token.length #found one more token or more , put the token back into the new string
+				for i in 0...token.length 
 					new_string[token_index + i] = token[i]
 				end
 			end
@@ -107,12 +107,11 @@ module Arrays
 	end
 	
 	def max_span(arrayes)
-		span = 0 # declare the span as zero 
-		for n in 0...arrayes.length # so you're looping through the values
-			for x in n...arrayes.length # and then within each value to the end value
-				if arrayes[x] == arrayes[n] #you're checking if any of the values are equal to each other
-					#once you do, you're going to then subtract the index values, but add 1, since subtracting doesn't count the first 1
-					span = (1 +(x-n)) if (1+(x-n)) > span && x-n >0	#checks whether the span is greater than the last one and that if there is no repition, its 0
+		span = 0 
+		for n in 0...arrayes.length 
+			for x in n...arrayes.length 
+				if arrayes[x] == arrayes[n]
+					span = (1 +(x-n)) if (1+(x-n)) > span && x-n >0
 				end
 			end
 		end
