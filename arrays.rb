@@ -70,8 +70,10 @@ module Arrays
 		relt_index = 0 
 		while true 
 			offset = relt_index == 0 ? 0 :  relt_index + relt.length 
+			
 			relt_index = stringer.index(relt, offset)
-			if relt_index == nil 
+			if relt_index == nil
+				
 				return new_stringer
 			else
 				for i in 0...relt.length 
